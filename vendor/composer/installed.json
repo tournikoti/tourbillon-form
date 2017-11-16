@@ -1,0 +1,39 @@
+[
+    {
+        "name": "tournikoti/tourbillon-request",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tournikoti/tourbillon-request.git",
+            "reference": "2de2673f4646038caff8af16314e94140e679630"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tournikoti/tourbillon-request/zipball/2de2673f4646038caff8af16314e94140e679630",
+            "reference": "2de2673f4646038caff8af16314e94140e679630",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2017-03-06T22:44:23+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Tourbillon\\Request\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Gwennael Jean",
+                "email": "gwennael.jean@trsb.net"
+            }
+        ]
+    }
+]
