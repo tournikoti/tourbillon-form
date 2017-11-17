@@ -28,8 +28,9 @@ class Form {
     }
     
     public function get($name) {
-        if (!$this->exist($name))
+        if (!$this->exist($name)) {
             throw new OutOfBoundsException("key {$name} does not exist");
+        }
 
         return $this->fields[$name];
     }
@@ -40,7 +41,15 @@ class Form {
         }
     }
     
-    public function isValid() {
-        
+    public function getFields() {
+        return $this->fields;
+    }
+    
+    public function getFieldValue(Field $field) {
+        return $field->getValue();
+    }
+    
+    public function getData() {
+        return array_map(array($this, 'getFieldValue'), $this->fields);
     }
 }

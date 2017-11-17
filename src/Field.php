@@ -19,6 +19,13 @@ class Field {
     public function getName() {
         return $this->name;
     }
+    
+    public function isChecked($value) {
+        if (is_array($this->value)) {
+            return in_array($value, $this->value);
+        }
+        return $this->value === $value;
+    }
 
     public function getValue() {
         return $this->value;

@@ -20,8 +20,8 @@ $form
 
 $form->handleRequest($request);
 
-if ($form->isValid()) {
-    
+if ($request->getMethod() == "POST") {
+    var_dump($form->getData());
 }
 
 ?>
@@ -33,30 +33,30 @@ if ($form->isValid()) {
 
     <br />
 
-    <input type="radio" name="genre" value="male" checked> Male<br />
-    <input type="radio" name="genre" value="female"> Female<br />
-    <input type="radio" name="genre" value="other"> Other<br />
+    <input type="radio" name="genre" value="male" <?= $form->get('genre')->isChecked('male') ? 'checked' : '' ?>> Male<br />
+    <input type="radio" name="genre" value="female" <?= $form->get('genre')->isChecked('female') ? 'checked' : '' ?>> Female<br />
+    <input type="radio" name="genre" value="other" <?= $form->get('genre')->isChecked('other') ? 'checked' : '' ?>> Other<br />
 
     <br />
 
-    <input type="checkbox" name="vehicule[]" value="Bike" />Vélo<br />
-    <input type="checkbox" name="vehicule[]" value="Car" />Voiture<br />
+    <input type="checkbox" name="vehicule[]" value="Bike" <?= $form->get('vehicule')->isChecked('Bike') ? 'checked' : '' ?> />Vélo<br />
+    <input type="checkbox" name="vehicule[]" value="Car" <?= $form->get('vehicule')->isChecked('Car') ? 'checked' : '' ?> />Voiture<br />
 
     <br />
 
     <select name="niveau">
-        <option value="niveau1">Niveau 1</option>
-        <option value="niveau2">Niveau 2</option>
+        <option value="niveau1" <?= $form->get('niveau')->isChecked('niveau1') ? 'selected' : '' ?>>Niveau 1</option>
+        <option value="niveau2" <?= $form->get('niveau')->isChecked('niveau2') ? 'selected' : '' ?>>Niveau 2</option>
     </select>
     
     <br />
     <br />
 
     <select name="position[]" multiple>
-        <option value="gardien">Gardien</option>
-        <option value="defenseur">Défenseur</option>
-        <option value="milieu">Milieu</option>
-        <option value="attaquant">Attaquant</option>
+        <option value="gardien" <?= $form->get('position')->isChecked('gardien') ? 'selected' : '' ?>>Gardien</option>
+        <option value="defenseur" <?= $form->get('position')->isChecked('defenseur') ? 'selected' : '' ?>>Défenseur</option>
+        <option value="milieu" <?= $form->get('position')->isChecked('milieu') ? 'selected' : '' ?>>Milieu</option>
+        <option value="attaquant" <?= $form->get('position')->isChecked('attaquant') ? 'selected' : '' ?>>Attaquant</option>
     </select> 
     
     <br />
