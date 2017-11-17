@@ -11,9 +11,13 @@ class Field {
 
     private $name;
     private $value;
+    private $options;
 
-    public function __construct($name) {
+    public function __construct($name, array $options = array()) {
         $this->name = $name;
+        $this->options = array_merge([
+            'security' => true
+        ], $options);
     }
 
     public function getName() {
@@ -28,7 +32,9 @@ class Field {
     }
 
     public function getValue() {
-        return $this->value;
+        return $this->options['security']
+                ? $this->secureValue($this->value)
+                : $this->value;
     }
 
     public function setName($name) {
@@ -41,4 +47,14 @@ class Field {
         return $this;
     }
 
+    private function secureValue($value) {
+        if (is_array($value)) {
+            foreach ($value as $k => $v) {
+                $value[$k] = $this->secureValue($v);
+            }
+        } else {
+            $value = htmlspecialchars($value);
+        }
+        return $value;
+    }
 }
