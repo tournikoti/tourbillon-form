@@ -18,6 +18,14 @@ $form
         ->add('position')
     ;
 
+$form->initialize([
+    'nom' => 'test',
+    'position' => [
+        'defenseur',
+        'attaquant'
+    ]
+]);
+
 $form->handleRequest($request);
 
 if ($request->getMethod() == "POST") {

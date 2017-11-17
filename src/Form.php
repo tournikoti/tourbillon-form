@@ -41,6 +41,12 @@ class Form {
         }
     }
     
+    public function initialize(array $data) {
+        foreach ($data as $name => $value) {
+            $this->get($name)->setValue($value);
+        }
+    }
+    
     public function getFields() {
         return $this->fields;
     }
